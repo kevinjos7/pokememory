@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PokeMemory</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="stylesheet" href="src/style.css" />
+</head>
+<body>
+  <!-- PEGA AQUÍ EL COMENTARIO OBLIGATORIO EXACTO QUE APARECE EN TU PDF -->
+
+  <main class="main-wrapper">
+    <!-- ================= 1. VISTA DE REGISTRO ================= -->
+    <form id="user-form" class="card-box">
+      <h1>PokeMemory</h1>
+      <p class="subtitle">Introduce tus datos para empezar a jugar</p>
+
+      <div class="input-group">
+        <label for="username">Usuario</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="Ej. AshKetchum"
+          required
+        />
+      </div>
+
+      <div class="input-group">
+        <label for="email">Correo electrónico</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Ej. pepito@gmail.com"
+          required
+        />
+      </div>
+
+      <button type="submit" class="btn-primary">Entrar al juego</button>
+    </form>
+
+    <!-- ================= 2. VISTA DEL JUEGO ================= -->
+    <div id="game" class="hidden">
+      <!-- Parte 3: Cabecera superior con el botón logout-btn -->
+      <header class="game-header">
+        <h1>PokeMemory</h1>
+        <button type="button" id="logout-btn" class="btn-danger">
+          Cerrar sesión
+        </button>
+      </header>
+
+      <div class="game-layout">
+        <!-- Parte 1 (Izquierda): Formulario de cartas, contador y tablero -->
+        <section class="left-panel card-box">
+          <form id="game-form" class="controls-bar">
+            <div class="input-inline">
+              <label for="cards-number">Número de cartas (par):</label>
+              <input
+                type="number"
+                id="cards-number"
+                placeholder="Ej. 8"
+                min="2"
+                step="2"
+                required
+              />
+            </div>
+            <button type="submit" id="play-btn" class="btn-primary">
+              Jugar
+            </button>
+          </form>
+
+          <div class="status-bar">
+            <span>Tiempo: <strong id="timer">0m 0s</strong></span>
+          </div>
+
+          <!-- Tablero donde se generan las cartas -->
+          <div id="game-board" class="board-grid"></div>
+        </section>
+
+        <!-- Parte 2 (Derecha): Ranking de partidas -->
+        <aside class="right-panel card-box">
+          <h2>Ranking de Partidas</h2>
+          <div id="ranking">
+            <table class="ranking-table">
+              <thead>
+                <tr>
+                  <th>Rating</th>
+                  <th>Nickname</th>
+                  <th>Mail</th>
+                  <th>Tiempo</th>
+                  <th>nº cartes</th>
+                </tr>
+              </thead>
+              <tbody id="ranking-body">
+                <!-- Filas cargadas desde Firebase -->
+              </tbody>
+            </table>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal obligatorio (<dialog id="modal">) para errores de validación -->
+  <dialog id="modal" class="modal-dialog">
+    <div class="modal-content">
+      <h3>Número no válido</h3>
+      <p id="modal-message">
+        Debes introducir un número entero, positivo y par (por ejemplo: 4, 6, 8, 12...).
+      </p>
+      <button type="button" id="close-modal-btn" class="btn-primary">
+        Entendido
+      </button>
+    </div>
+  </dialog>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

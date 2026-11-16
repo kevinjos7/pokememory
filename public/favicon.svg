@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <!-- Sutil degradado rojo y sombra -->
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FF3333" />
+      <stop offset="100%" stop-color="#CC0000" />
+    </linearGradient>
+    <linearGradient id="whiteGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#E2E2E2" />
+    </linearGradient>
+  </defs>
+
+  <!-- Borde exterior oscuro -->
+  <circle cx="50" cy="50" r="48" fill="#1C1D21" />
+
+  <!-- Mitad superior roja -->
+  <path d="M 8 50 A 42 42 0 0 1 92 50 Z" fill="url(#redGrad)" />
+
+  <!-- Mitad inferior blanca -->
+  <path d="M 8 50 A 42 42 0 0 0 92 50 Z" fill="url(#whiteGrad)" />
+
+  <!-- Franja central negra -->
+  <rect x="8" y="45" width="84" height="10" fill="#1C1D21" />
+
+  <!-- Círculo exterior del botón central -->
+  <circle cx="50" cy="50" r="16" fill="#1C1D21" />
+
+  <!-- Botón central blanco -->
+  <circle cx="50" cy="50" r="10" fill="#FFFFFF" stroke="#D3D3D3" stroke-width="1.5" />
+
+  <!-- Centro del botón -->
+  <circle cx="50" cy="50" r="5" fill="#EAEAEA" />
+
+  <!-- Brillo superior -->
+  <ellipse cx="32" cy="22" rx="9" ry="4.5" transform="rotate(-28 32 22)" fill="#FFFFFF" opacity="0.45" />
+</svg>
